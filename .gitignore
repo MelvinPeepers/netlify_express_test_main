@@ -1,0 +1,7 @@
+# standard npm git ignore
+node_modules
+
+# env
+.env
+
+.DS_Store
