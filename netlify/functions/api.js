@@ -1,11 +1,28 @@
-import express, { Router } from "express";
+// import express, { Router } from "express";
+// import serverless from "serverless-http";
+
+// const api = express();
+
+// const router = Router();
+// router.get("/hello", (req, res) => res.send("Hello World!"));
+
+// api.use("/", router);
+
+// export const handler = serverless(api);
+
+
+import express from "express";
 import serverless from "serverless-http";
 
 const api = express();
+const router = express.Router();
 
-const router = Router();
-router.get("/hello", (req, res) => res.send("Hello World!"));
+// Define routes
+router.get("/hello", (req, res) => {
+  res.json({ message: "Hello World!" });
+});
 
-api.use("/", router);
+// Attach router to match Netlify Function path
+api.use("/api", router);
 
 export const handler = serverless(api);
